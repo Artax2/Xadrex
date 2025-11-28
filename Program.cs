@@ -9,12 +9,18 @@ namespace xadrex_console {
                 // TAMANHO DO TABULEIRO 
                 Tabuleiro tab = new Tabuleiro(8, 8);
 
-                tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));
-                tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(1, 9));
-                tab.ColocarPeca(new Rei(tab, Cor.Preta), new Posicao(0, 2));
+                // tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));
+                // tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(1, 8));
+                // tab.ColocarPeca(new Rei(tab, Cor.Preta), new Posicao(0, 2));
 
-                Tela.ImprimirTabuleiro(tab);
-                Console.ReadLine();
+                // Tela.ImprimirTabuleiro(tab);
+                // Console.ReadLine();
+
+                PosicaoXadrex pos = new PosicaoXadrex('c', 7);
+
+                Console.WriteLine(pos);
+
+                Console.WriteLine(pos.toPosicao());
             }
             catch(TabuleiroException e) {
                 Console.WriteLine(e.Message);
