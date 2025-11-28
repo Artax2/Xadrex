@@ -1,4 +1,4 @@
-﻿namespace xadrex_console.tabuleiro {
+﻿namespace tabuleiro {
     internal class Tabuleiro {
         public int linhas { get; set; }
         public int colunas { get; set; }
@@ -34,6 +34,18 @@
             }
             pecas[pos.linha, pos.coluna] = p;
             p.posicao = pos;
+        }
+
+        public Peca RetirarPeca(Posicao pos) {
+            // CASO A PEÇA NÃO EXISTA NESSA POSIÇÃO, RETORNA NULO
+            if(peca(pos.linha, pos.coluna) == null) {
+                return null;
+            }
+            // REFERENCIA UMA PEÇA AUXILIAR PARA RETIRAR
+            Peca aux = peca(pos.linha, pos.coluna);
+            aux.posicao = null;
+            pecas[pos.linha, pos.coluna] = null;
+            return aux;
         }
 
         // MÉTODO DE VERIFICAÇÃO SE O TAMANHO DO TABULEIRO FOR EXCEDIDO OU MENOR DO QUE 0

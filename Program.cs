@@ -1,21 +1,24 @@
-﻿using System.Net.Http.Headers;
+﻿using tabuleiro;
+using xadrex;
 
-using xadrex_console.tabuleiro;
-using xadrex_console.xadrex;
 namespace xadrex_console {
     internal class Program {
         static void Main(string[] args) {
             try {
-                // TAMANHO DO TABULEIRO 
-                Tabuleiro tab = new Tabuleiro(8, 8);
+                PartidaDeXadrex partida = new PartidaDeXadrex();
 
-                tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));
-                tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(1, 3));
-                tab.ColocarPeca(new Rei(tab, Cor.Preta), new Posicao(0, 2));
+                while(!partida.terminada) {
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partida.tab);
 
-                tab.ColocarPeca(new Torre(tab, Cor.Branca), new Posicao(3, 5));
+                    Console.WriteLine();
+                    Console.Write("Origem: ");
+                    Posicao origem = Tela.lerPosicaoXadrex().toPosicao();
+                    Console.Write("Destino: ");
+                    Posicao destino = Tela.lerPosicaoXadrex().toPosicao();
 
-                Tela.ImprimirTabuleiro(tab);
+                    partida.executaMovimento(origem, destino);
+                }
             }
             catch (TabuleiroException e) {
                 Console.WriteLine(e.Message);

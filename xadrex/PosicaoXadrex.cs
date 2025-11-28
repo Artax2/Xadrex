@@ -1,6 +1,6 @@
-﻿using xadrex_console.tabuleiro;
+﻿using tabuleiro;
 
-namespace xadrex_console.xadrex {
+namespace xadrex {
     internal class PosicaoXadrex {
 
         public char coluna { get; set; }

@@ -1,4 +1,4 @@
-﻿namespace xadrex_console.tabuleiro {
+﻿namespace tabuleiro {
     internal class Posicao {
         public int linha { get; set; }
         public int coluna { get; set; }

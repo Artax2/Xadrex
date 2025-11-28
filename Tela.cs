@@ -1,4 +1,6 @@
-﻿using xadrex_console.tabuleiro;
+﻿using tabuleiro;
+
+using xadrex;
 
 namespace xadrex_console {
     internal class Tela {
@@ -29,10 +31,18 @@ namespace xadrex_console {
             }
             else {
                 ConsoleColor aux = Console.ForegroundColor;
+
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write(peca);
                 Console.ForegroundColor = aux;
             }
+        }
+
+        public static PosicaoXadrex lerPosicaoXadrex() {
+            string s = Console.ReadLine();
+            char coluna = s[0];
+            int linha = int.Parse(s[1] + "");
+            return new PosicaoXadrex(coluna, linha);
         }
     }
 }

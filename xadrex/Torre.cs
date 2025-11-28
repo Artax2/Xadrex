@@ -1,5 +1,5 @@
-﻿using xadrex_console.tabuleiro;
-namespace xadrex_console.xadrex {
+﻿using tabuleiro;
+namespace xadrex {
     internal class Torre : Peca {
         public Torre(Tabuleiro tab, Cor cor) : base(tab, cor) {
         }
