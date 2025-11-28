@@ -1,23 +1,30 @@
 ﻿using tabuleiro;
 using xadrex;
 
+using xadrez;
+
 namespace xadrex_console {
     internal class Program {
         static void Main(string[] args) {
             try {
-                PartidaDeXadrex partida = new PartidaDeXadrex();
+                PartidaDeXadrez partida = new PartidaDeXadrez();
 
                 while(!partida.terminada) {
                     Console.Clear();
-                    Tela.ImprimirTabuleiro(partida.tab);
+                    Tela.imprimirTabuleiro(partida.tab);
 
                     Console.WriteLine();
                     Console.Write("Origem: ");
-                    Posicao origem = Tela.lerPosicaoXadrex().toPosicao();
-                    Console.Write("Destino: ");
-                    Posicao destino = Tela.lerPosicaoXadrex().toPosicao();
+                    Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
 
-                    partida.executaMovimento(origem, destino);
+                    bool[,] posicoesPossiveis = partida.tab.peca(origem.linha, origem.coluna).movimentosPossiveis();
+
+                    Console.Clear();
+                    Tela.imprimirTabuleiro(partida.tab, posicoesPossiveis);
+                    Console.Write("Destino: ");
+                    Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
+
+                    partida.ExecutaMovimento(origem, destino);
                 }
             }
             catch (TabuleiroException e) {
