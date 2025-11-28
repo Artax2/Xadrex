@@ -6,7 +6,7 @@
         public Tabuleiro tabuleiro { get; set; }
 
         public Peca(Tabuleiro tabuleiro, Cor cor) {
-            this.posicao = null;
+            this.posicao = null; // POSIÇÃO A SER DEFINIDA
             this.tabuleiro = tabuleiro;
             this.cor = cor;
         }
